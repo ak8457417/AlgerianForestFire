@@ -23,7 +23,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:8080/predict", formData);
+      const res = await axios.post("https://algerianforestfire-1-h48m.onrender.com/predict", formData);
       setResult(res.data.prediction);
     } catch (err) {
       console.error(err);
