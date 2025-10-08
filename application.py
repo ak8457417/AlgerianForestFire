@@ -38,3 +38,41 @@ def predict():
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=8080)
+
+
+# import pickle
+# from flask import Flask, request, jsonify
+# from flask_cors import CORS
+# import numpy as np
+#
+# application = Flask(__name__)
+# app = application
+# CORS(app)  # allow React frontend to access Flask API
+#
+# model = pickle.load(open('lr.pkl', 'rb'))
+# scaler = pickle.load(open('sc.pkl', 'rb'))
+#
+# @app.route('/')
+# def home():
+#     return jsonify({"message": "Flask backend is running!"})
+#
+# @app.route('/predict', methods=['POST'])
+# def predict():
+#     data = request.get_json()  # JSON input from React
+#     Temperature = float(data['Temperature'])
+#     RH = float(data['RH'])
+#     Ws = float(data['Ws'])
+#     Rain = float(data['Rain'])
+#     FFMC = float(data['FFMC'])
+#     DMC = float(data['DMC'])
+#     ISI = float(data['ISI'])
+#     Classes = float(data['Classes'])
+#     Region = float(data['Region'])
+#
+#     new_data_scaled = scaler.transform([[Temperature, RH, Ws, Rain, FFMC, DMC, ISI, Classes, Region]])
+#     result = model.predict(new_data_scaled)
+#
+#     return jsonify({'prediction': float(result[0])})
+#
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=8080)
